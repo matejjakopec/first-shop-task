@@ -1,0 +1,34 @@
+<h1>{{ product.getName() }}</h1>
+
+<div>
+    <p>Price:  {{ product.getPrice().convertTo('EUR') }}  ({{ product.getPrice().convertTo('kn') }})</p>
+</div>
+
+<div>
+     {% if connectivity %}
+        <div>
+            <p>Bluetooth: {{ connectivity.getBluetooth() ? '+' : '-' }}</p>
+            <p>Wi-Fi: {{ connectivity.getWifi() ? '+' : '-'}}</p>
+            <p>USB: {{ connectivity.getUsb() ? '+' : '-'}}</p>
+        </div>
+     {% endif %}
+
+    {% if dimensions %}
+        <div>
+            <p>Width: {{ dimensions.getWidth().getValue() }}{{ dimensions.getWidth().getUnitId() }}</p>
+            <p>Height: {{ dimensions.getHeight().getValue() }}{{ dimensions.getWidth().getUnitId() }}</p>
+            <p>Length: {{ dimensions.getLength().getValue() }}{{ dimensions.getWidth().getUnitId() }}</p>
+        </div>
+    {% endif %}
+</div>
+
+<h3>Reviews:</h3>
+{% for review in reviews %}
+    <div style="border: 1px solid black">
+        <h4>{{ review.getAuthor() }}</h4>
+        <p>{{ review.getText() }}</p>
+        <p>{{ review.getRating() }}</p>
+    </div>
+{% endfor %}
+
+{{ form(form) }}

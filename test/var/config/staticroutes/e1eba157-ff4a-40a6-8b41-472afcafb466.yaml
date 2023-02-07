@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            e1eba157-ff4a-40a6-8b41-472afcafb466:
+                name: products
+                pattern: '/\product\/(.*)\/(.*)'
+                reverse: product/%%s/%%s
+                controller: 'App\Controller\ProductController::detailsAction'
+                variables: 'category,name'
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 0
+                creationDate: 1675767178
+                modificationDate: 1675767363
